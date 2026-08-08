@@ -210,9 +210,9 @@ export default function HomePage() {
             <h2 className="text-[32px] mb-6">Let&apos;s plan your shoot</h2>
             <div className="grid gap-4">
               {[
-                { Icon: MapPin, label: 'Studio Address', value: '4th Floor, Indiranagar, Bengaluru, Karnataka' },
-                { Icon: Phone, label: 'Call Us', value: '+91 98450 12345' },
-                { Icon: Mail, label: 'Email', value: 'hello@pikturefactory.com' },
+                { Icon: MapPin, label: 'Studio Address', value: 'Kallumantapa, Ramamurthy Nagar, Bengaluru, Karnataka 560016' },
+                { Icon: Phone, label: 'Call Us', value: '+91 72043 39503' },
+                { Icon: Mail, label: 'Email', value: 'info@pikturefactory.in' },
                 { Icon: Clock, label: 'Studio Hours', value: 'Mon – Sat, 10 AM – 7 PM' },
               ].map(({ Icon, label, value }) => (
                 <div key={label} className="flex gap-4 items-start bg-white p-5 rounded-xl border border-border">
@@ -245,8 +245,8 @@ export default function HomePage() {
 
       {/* FLOATING BUTTONS */}
       <div className="fixed bottom-7 right-7 flex flex-col gap-3.5 z-[900]">
-        <a href="https://wa.me/919845012345" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lift hover:scale-110 transition-transform"><MessageCircle size={22} /></a>
-        <a href="tel:+919845012345" className="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lift hover:scale-110 transition-transform"><PhoneCall size={20} /></a>
+        <a href="https://wa.me/917204339503" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lift hover:scale-110 transition-transform"><MessageCircle size={22} /></a>
+        <a href="tel:+917204339503" className="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lift hover:scale-110 transition-transform"><PhoneCall size={20} /></a>
       </div>
     </>
   );

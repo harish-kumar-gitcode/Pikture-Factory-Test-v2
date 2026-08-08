@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-xs opacity-60">
           <span>© {new Date().getFullYear()} Pikture Factory. All rights reserved.</span>
-          <span>Crafted for storytellers, by storytellers.</span>
+          <span>Crafted for Pikture Factory, <a href="https://yourwebstudio.vercel.app" target='_blank'>by Your Web Studio</a>.</span>
         </div>
       </div>
     </footer>
