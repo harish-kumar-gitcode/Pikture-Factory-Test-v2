@@ -14,6 +14,7 @@ export default function VendorApplyPage() {
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [submitting, setSubmitting] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
   const fileRef = useRef(null);
   const router = useRouter();
   const showToast = useToast();
@@ -74,6 +75,10 @@ export default function VendorApplyPage() {
   }
 
   async function handleSubmit() {
+    if (!agreedToTerms) {
+      showToast('Please agree to the Terms and Conditions and Privacy Policy to continue.', 'error');
+      return;
+    }
     setSubmitting(true);
     try {
       const res = await fetch('/api/vendors/apply', {
@@ -234,8 +239,30 @@ export default function VendorApplyPage() {
             </div>
           )}
 
+          {step === STEPS.length - 1 && (
+            <label className="flex items-start gap-2.5 mt-8 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={agreedToTerms}
+                onChange={(e) => setAgreedToTerms(e.target.checked)}
+                className="mt-0.5 w-4 h-4 accent-gold shrink-0 cursor-pointer"
+              />
+              <span className="text-xs text-secondary leading-relaxed">
+                By clicking this button I agree to the{' '}
+                <Link href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="text-gold underline hover:text-primary">
+                  Terms and Conditions
+                </Link>{' '}
+                and{' '}
+                <Link href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-gold underline hover:text-primary">
+                  Privacy Policy
+                </Link>{' '}
+                of Pikture Factory.
+              </span>
+            </label>
+          )}
+
           {/* nav buttons */}
-          <div className="flex justify-between mt-9">
+          <div className="flex justify-between mt-5">
             <button
               onClick={() => setStep((s) => Math.max(0, s - 1))}
               className={`btn btn-outline btn-sm ${step === 0 ? 'invisible' : ''}`}
@@ -248,7 +275,7 @@ export default function VendorApplyPage() {
                 Continue <ArrowRight size={14} />
               </button>
             ) : (
-              <button disabled={!canProceed() || submitting} onClick={handleSubmit} className="btn btn-gold btn-sm disabled:opacity-40">
+              <button disabled={!canProceed() || !agreedToTerms || submitting} onClick={handleSubmit} className="btn btn-gold btn-sm disabled:opacity-40">
                 {submitting ? 'Submitting...' : 'Submit Application'}
               </button>
             )}
