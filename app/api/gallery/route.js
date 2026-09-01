@@ -3,6 +3,7 @@ import { connectDB } from '@/lib/mongodb';
 import GalleryItem from '@/models/GalleryItem';
 import Vendor from '@/models/Vendor';
 import { getSession } from '@/lib/auth';
+import Project from '@/models/Project';
 
 // GET /api/gallery?category=&featured=&gallery=  — PUBLIC: only approved (and not vendor-deleted) items,
 // for the homepage + gallery page. Pass featured=1 for the curated homepage showcase, or
