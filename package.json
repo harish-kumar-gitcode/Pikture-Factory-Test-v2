@@ -1,0 +1,32 @@
+{
+  "name": "pikture-factory",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed:admin": "node scripts/seedAdmin.js",
+    "migrate:portfolio-samples": "node scripts/migratePortfolioSamples.js"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "mongoose": "^8.5.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "cloudinary": "^2.4.0",
+    "nodemailer": "^6.9.14",
+    "lucide-react": "^0.436.0",
+    "date-fns": "^3.6.0",
+    "jose": "^5.9.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "dotenv": "^16.4.5"
+  }
+}

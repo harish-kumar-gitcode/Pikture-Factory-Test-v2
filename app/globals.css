@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply font-body text-primary bg-white; }
+h1,h2,h3,h4 { @apply font-head; }
+
+::-webkit-scrollbar { width: 8px; height: 6px; }
+::-webkit-scrollbar-thumb { @apply bg-gold rounded-full; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold transition-all duration-300; }
+  .btn-primary { @apply bg-primary text-white hover:bg-gold hover:text-primary hover:-translate-y-0.5 hover:shadow-lift; }
+  .btn-outline { @apply border border-primary text-primary hover:bg-primary hover:text-white hover:-translate-y-0.5; }
+  .btn-gold { @apply bg-gold text-primary hover:bg-primary hover:text-white hover:-translate-y-0.5 hover:shadow-lift; }
+  .btn-sm { @apply px-4 py-2 text-xs; }
+
+  .input { @apply w-full px-4 py-3 border border-border rounded-xl text-sm bg-bglight focus:bg-white focus:border-gold focus:outline-none transition-colors; }
+  .label { @apply block text-sm font-medium mb-2 text-secondary; }
+
+  .panel { @apply bg-white border border-border rounded-pf p-4 sm:p-6 mb-6; }
+  .card-hover { @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lift; }
+
+  .pill { @apply inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full; }
+  .pill::before { content: ''; @apply w-1.5 h-1.5 rounded-full bg-current; }
+  .pill-success { @apply text-success bg-green-100; }
+  .pill-warning { @apply text-warning bg-amber-100; }
+  .pill-danger { @apply text-danger bg-red-100; }
+  .pill-info { @apply text-blue-600 bg-blue-100; }
+  .pill-neutral { @apply text-secondary bg-bglight; }
+}
