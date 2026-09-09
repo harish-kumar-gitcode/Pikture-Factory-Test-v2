@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply font-body text-primary bg-bglight antialiased; letter-spacing: -0.01em; overflow-x: hidden; }
+
+*, *::before, *::after { box-sizing: border-box; }
+h1,h2,h3,h4 { @apply font-head; }
+button,input,textarea,select { font: inherit; }
+
+::-webkit-scrollbar { width: 8px; height: 6px; }
+::-webkit-scrollbar-thumb { @apply bg-gold rounded-full; }
+::-webkit-scrollbar-track { background: transparent; }
+
+@layer components {
+  .brand-mark { @apply font-head font-semibold tracking-[-0.035em] text-white; }
+  .brand-mark span { @apply text-gold; }
+  .eyebrow { @apply text-[10px] uppercase tracking-[.22em] font-semibold; }
+  .page-shell { @apply max-w-[1500px] mx-auto w-full; }
+  .btn { @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300; }
+  .btn-primary { @apply bg-primary text-white hover:bg-gold hover:text-primary hover:-translate-y-0.5 hover:shadow-lift; }
+  .btn-outline { @apply border border-border bg-white text-primary hover:border-primary hover:bg-primary hover:text-white hover:-translate-y-0.5; }
+  .btn-gold { @apply bg-gold text-primary hover:bg-primary hover:text-white hover:-translate-y-0.5 hover:shadow-lift; }
+  .btn-sm { @apply px-4 py-2 text-xs rounded-lg; }
+  .input { @apply w-full px-4 py-3 border border-border rounded-xl text-sm bg-bglight focus:bg-white focus:border-gold focus:outline-none transition-colors; }
+  .label { @apply block text-xs font-semibold mb-2 text-secondary; }
+  .panel { @apply bg-white border border-border rounded-[20px] p-5 sm:p-6; box-shadow: 0 8px 35px rgba(17,17,17,.035); }
+  .card-hover { @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lift; }
+  .metric-card { @apply bg-white border border-border rounded-[20px] p-5 sm:p-6; box-shadow: 0 8px 30px rgba(17,17,17,.035); }
+  .sidebar-link { @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-white/65 transition-all duration-200; }
+  .sidebar-link:hover { @apply text-white bg-white/[.06]; }
+  .sidebar-link.active { @apply bg-gold text-primary font-semibold shadow-[0_10px_25px_rgba(200,164,93,.12)]; }
+  .app-sidebar { @apply bg-primary text-white p-5 flex flex-col h-screen fixed top-0 left-0 z-50 w-[282px] shrink-0 overflow-hidden transition-transform duration-300; width: min(282px, calc(100vw - 1rem)); }
+  .section-kicker { @apply text-[10px] uppercase tracking-[.2em] font-semibold text-gold; }
+  .pill { @apply inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full; }
+  .pill::before { content: ''; @apply w-1.5 h-1.5 rounded-full bg-current; }
+  .pill-success { @apply text-success bg-green-100; }
+  .pill-warning { @apply text-warning bg-amber-100; }
+  .pill-danger { @apply text-danger bg-red-100; }
+  .pill-info { @apply text-blue-600 bg-blue-100; }
+  .pill-neutral { @apply text-secondary bg-bglight; }
+}
+
+
+@media (max-width: 640px) {
+  html { overflow-x: hidden; }
+  main { min-width: 0; width: 100%; }
+  .btn { @apply px-4 py-2.5 text-xs rounded-xl; }
+  .btn-sm { @apply px-3 py-2 text-[11px]; }
+  .panel, .metric-card { @apply rounded-2xl p-4; }
+  .app-sidebar { padding: 1rem; }
+  .sidebar-link { @apply px-3 py-2.5; }
+  .page-shell { width: 100%; min-width: 0; }
+  .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+}
