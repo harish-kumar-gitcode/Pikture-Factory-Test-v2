@@ -1,0 +1,4 @@
+import mongoose from 'mongoose';
+const AddOnSchema = new mongoose.Schema({ name:{type:String,required:true}, description:String, regularPrice:{type:Number,default:0}, salePrice:{type:Number,default:0}, active:{type:Boolean,default:true}, image:String },{_id:true});
+const PhotographyPackageSchema = new mongoose.Schema({ slug:{type:String,unique:true,index:true}, name:{type:String,required:true}, category:String, tag:String, description:String, occasions:String, price:{type:Number,required:true}, compareAtPrice:{type:Number,default:0}, duration:String, image:String, features:[String], active:{type:Boolean,default:true}, featured:{type:Boolean,default:false}, addOns:[AddOnSchema] },{timestamps:true});
+export default mongoose.models.PhotographyPackage || mongoose.model('PhotographyPackage',PhotographyPackageSchema);

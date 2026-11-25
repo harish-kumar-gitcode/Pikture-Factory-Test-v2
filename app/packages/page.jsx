@@ -1,0 +1,2 @@
+import Navbar from '@/components/home/Navbar';import Footer from '@/components/home/Footer';import {DivisionCards} from '@/components/home/PackageStore';
+export default function Page(){return <><Navbar/><main className="max-w-7xl mx-auto px-6 pt-32 pb-20"><p className="section-kicker">Package collections</p><h1 className="text-5xl mb-5 mt-3">Find your perfect package.</h1><p className="text-secondary mb-8">Choose your occasion, compare packages and personalise your enquiry.</p><DivisionCards/></main><Footer/></>}
